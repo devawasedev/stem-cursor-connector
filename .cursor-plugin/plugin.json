@@ -1,0 +1,19 @@
+{
+  "name": "stem",
+  "version": "1.0.0",
+  "description": "Give Cursor durable, user-controlled memory across AI conversations and tools through Stem.",
+  "author": {
+    "name": "Awase LLC",
+    "email": "support@awase.dev"
+  },
+  "homepage": "https://awase.dev/stem",
+  "keywords": [
+    "memory",
+    "mcp",
+    "context",
+    "knowledge",
+    "productivity"
+  ],
+  "logo": "assets/stem-icon.png",
+  "mcpServers": "./mcp.json"
+}
