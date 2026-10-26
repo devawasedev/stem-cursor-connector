@@ -1,4 +1,6 @@
-# STEM for Cursor
+# STEM for Cursor — Stem by Awase
+
+Persistent AI memory across ChatGPT, Claude and Cursor: save selected context, then recall it through an authorized connection to the same STEM account. See the [agent hub](https://awase.dev/agents) for supported hosts and connection guides.
 
 Save selected project context in STEM, then recall it from Cursor or another compatible assistant connected to the same STEM account. Useful context includes architectural decisions, project constraints, preferences and next-step notes.
 
@@ -33,6 +35,12 @@ This repository is the source package for the existing `stem` Cursor plugin iden
 The repository includes `.cursor-plugin/marketplace.json` with one entry pointing to the existing `stem` plugin at `./`. For a Cursor **From Local Repository** marketplace import, choose the repository root containing that file. Review and select STEM; importing a marketplace alone is not proof that its plugin is installed or authenticated.
 
 Cursor also documents a direct local-development route: copy the complete plugin into `~/.cursor/plugins/local/stem`, then restart Cursor or run **Developer: Reload Window**. Open Customize and check for the project-context skill and STEM MCP server. Do not overwrite an existing local plugin without reviewing it. An installed marketplace plugin with the same name takes precedence over a local copy. Enterprise policy may disable local imports, and symlinks outside the local plugins folder are skipped. See [Cursor's local testing guide](https://cursor.com/docs/plugins#test-plugins-locally).
+
+## Dated evidence: selected-context handoff
+
+On **October 25, 2026**, an isolated synthetic test used ChatGPT web, Claude web and Cursor Agents. ChatGPT reported saving a note; expanded native Claude and Cursor recall responses returned its same reported memory ID and exact text. ChatGPT's save and deletion payloads were not independently captured. Cleanup was assistant-reported deletion plus zero results in one bounded Claude recall, not an account-wide erasure audit.
+
+Cursor used **User MCP**, This Mac, with no repository. This establishes one observed recall through that configuration; it does not verify saving in Cursor, this plugin's runtime, every host/version, full-chat import or ongoing transcript synchronization. Read the [dated native demonstration and limitations](https://awase.dev/workflows/chatgpt-to-claude#observed-native-run) and [compatibility evidence](https://awase.dev/docs/compatibility).
 
 ## Verify a real save and recall
 
