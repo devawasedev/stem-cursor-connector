@@ -1,7 +1,7 @@
 {
   "name": "stem",
-  "displayName": "STEM — Persistent AI Memory",
-  "version": "1.1.0",
+  "displayName": "STEM \u2014 Persistent AI Memory",
+  "version": "1.1.1",
   "description": "Save selected project context in STEM, then recall it in Cursor or another compatible assistant connected to the same account. Remote MCP with OAuth.",
   "author": {
     "name": "Awase LLC",
@@ -10,7 +10,14 @@
   "homepage": "https://awase.dev/integrations/cursor",
   "repository": "https://github.com/devawasedev/stem-cursor-connector",
   "license": "MIT",
-  "keywords": ["persistent-memory", "shared-context", "coding-agents", "mcp", "oauth", "project-context"],
+  "keywords": [
+    "persistent-memory",
+    "shared-context",
+    "coding-agents",
+    "mcp",
+    "oauth",
+    "project-context"
+  ],
   "logo": "assets/stem-icon.png",
   "skills": "skills/",
   "mcpServers": "mcp.json"
