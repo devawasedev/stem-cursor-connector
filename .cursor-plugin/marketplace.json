@@ -1,0 +1,13 @@
+{
+  "name": "awase-stem",
+  "owner": {
+    "name": "Awase LLC",
+    "email": "support@awase.dev"
+  },
+  "plugins": [
+    {
+      "name": "stem",
+      "source": "./"
+    }
+  ]
+}

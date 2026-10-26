@@ -28,6 +28,12 @@ Cursor discovers STEM's OAuth metadata and dynamically registers its client. Do 
 
 This repository is the source package for the existing `stem` Cursor plugin identity. Marketplace acceptance and availability must be verified separately; this README does not claim an approved listing. When STEM is available in Cursor's Marketplace or a team marketplace, review its repository and install it through Cursor's Customize page. A complete plugin installation includes the `stem-project-context` skill as well as the MCP server. Do not add a second STEM server if you already configured it manually.
 
+### Test a local checkout
+
+The repository includes `.cursor-plugin/marketplace.json` with one entry pointing to the existing `stem` plugin at `./`. For a Cursor **From Local Repository** marketplace import, choose the repository root containing that file. Review and select STEM; importing a marketplace alone is not proof that its plugin is installed or authenticated.
+
+Cursor also documents a direct local-development route: copy the complete plugin into `~/.cursor/plugins/local/stem`, then restart Cursor or run **Developer: Reload Window**. Open Customize and check for the project-context skill and STEM MCP server. Do not overwrite an existing local plugin without reviewing it. An installed marketplace plugin with the same name takes precedence over a local copy. Enterprise policy may disable local imports, and symlinks outside the local plugins folder are skipped. See [Cursor's local testing guide](https://cursor.com/docs/plugins#test-plugins-locally).
+
 ## Verify a real save and recall
 
 Use a synthetic note with a unique marker, such as `stem-cursor-check-<your-unique-suffix>`. Replace the placeholder before running the check.
@@ -77,7 +83,7 @@ node scripts/validate.mjs
 node scripts/validate.mjs --network
 ```
 
-The first command checks the documented Cursor manifest constraints, component paths, skill metadata, exact remote configuration, logo and decoded install link. The optional network check reads the public install page and OAuth discovery endpoints. Neither command signs in, installs a plugin, invokes a memory tool or proves an authenticated Cursor workflow. The validator is maintained by Awase, not a Cursor approval or certification.
+The first command checks the marketplace wrapper, its resolution to the single plugin, documented Cursor manifest constraints, component paths, skill metadata, exact remote configuration, logo and decoded install link. The optional network check reads the public install page and OAuth discovery endpoints. Neither command signs in, installs a plugin, invokes a memory tool or proves an authenticated Cursor workflow. The validator is maintained by Awase, not a Cursor approval or certification.
 
 ## License
 

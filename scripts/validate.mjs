@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Awase-maintained package checks against Cursor's documented single-plugin format.
+// Awase-maintained checks for one Cursor plugin and its local marketplace wrapper.
 // No installation, credential access or authenticated tool calls.
 import assert from 'node:assert/strict';
 import { readFile, readdir, stat } from 'node:fs/promises';
@@ -21,6 +21,21 @@ async function localPath(value) {
 }
 
 const manifest = await json('.cursor-plugin/plugin.json');
+const marketplace = await json('.cursor-plugin/marketplace.json');
+check('marketplace advertises only the existing STEM plugin and publisher', () => {
+  assert.deepEqual(marketplace, {
+    name: 'awase-stem',
+    owner: { name: 'Awase LLC', email: 'support@awase.dev' },
+    plugins: [{ name: 'stem', source: './' }],
+  });
+  assert.match(marketplace.name, /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/);
+  assert(Buffer.byteLength(JSON.stringify(marketplace)) < 10 * 1024 * 1024);
+});
+const pluginRoot = await localPath(marketplace.plugins[0].source);
+check('marketplace source resolves to the complete plugin at the repository root', () => {
+  assert.equal(pluginRoot, root);
+  assert.equal(marketplace.plugins[0].name, manifest.name);
+});
 check('manifest identity, types and version', () => {
   assert.equal(manifest.name, 'stem');
   assert.match(manifest.name, /^[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$/);
